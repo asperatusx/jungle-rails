@@ -2,19 +2,29 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  # Define the route for the about page as '/about'
+  get 'about', to: 'about#index'
+
+  # Routes for products, allowing only index and show actions
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
+  # Routes for the cart, allowing only the show action and adding custom actions for adding/removing items
   resource :cart, only: [:show] do
-    post   :add_item
-    post   :remove_item
+    # Custom routes for adding and removing items from the cart
+    post   :add_item  # Adds an item to the cart
+    post   :remove_item # Removes an item from the cart
   end
 
+  # Routes for orders, allowing only create and show actions
   resources :orders, only: [:create, :show]
 
   namespace :admin do
+     # Set the root route for the admin section to the 'show' action of the 'dashboard' controller
     root to: 'dashboard#show'
+    # Admin routes for managing products, excluding edit, update, and show actions
     resources :products, except: [:edit, :update, :show]
+    # This means the admin can create, index, and destroy products, but cannot edit, update, or view a single product
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
