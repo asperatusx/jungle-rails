@@ -3,8 +3,10 @@
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
+  
 
   <div class="order-summary jumbotron">
+    <%= render 'line_item' %>
     <h4>Thank you for your order!</h4>
   </div>
 
