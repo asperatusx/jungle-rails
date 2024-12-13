@@ -1,0 +1,16 @@
+<div>
+  <% @line_items.each do |line_item| %>
+  <div>
+    <span><%= image_tag line_item.product.image.tiny.url %></span>
+    <h3><%= line_item.product.name %></h3>
+    <p><%= line_item.product.description %></p>
+    <div>
+    <p>Qantity: <%= line_item.quantity %></p>
+    <p>Total: <%= humanized_money_with_symbol (line_item.total_price_cents / 100.0) * line_item.quantity %></p>
+    </div>
+  </div>
+  <hr class="my-4">
+    <% end %>
+  <p><strong>Final Amount:</strong> <%= humanized_money_with_symbol @order.total %></p>
+  <p><strong>Email:</strong> <%= @order.email %></p>
+</div>
