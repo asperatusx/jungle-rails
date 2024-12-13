@@ -1,2 +1,22 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Admin Dashboard</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card text-white bg-dark mb-3">
+        <div class="card-header text-center">Inventory Summary</div>
+        <div class="card-body">
+          <h5 class="card-title">Store Overview</h5>
+          <p class="card-text">
+            <strong>Products:</strong> <a href="<%= admin_products_path %>"><%= @products.count %></a>
+          </p>
+          <p class="card-text">
+            <strong>Categories:</strong> <a href="<%= admin_products_path %>"><%= @categories.count %></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
