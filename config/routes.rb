@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'categories/index'
+    get 'categories/new'
+    get 'categories/create'
+  end
   root to: 'products#index'
 
   # Define the route for the about page as '/about'
@@ -25,6 +30,9 @@ Rails.application.routes.draw do
     # Admin routes for managing products, excluding edit, update, and show actions
     resources :products, except: [:edit, :update, :show]
     # This means the admin can create, index, and destroy products, but cannot edit, update, or view a single product
+    
+    # Admin routes for managing products
+    resources :categories, only: [:index, :new, :create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
