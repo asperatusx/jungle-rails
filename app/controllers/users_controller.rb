@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.save?
+    if @user.save
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to '/', notice: "Registration Successful!"
     else
-      redirect_to 'signup'
+      redirect_to 'signup', notice: "Signup failed. Check your info again."
+    end
   end
 
   private

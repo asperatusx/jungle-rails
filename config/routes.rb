@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  # Created with sessions generator
+  # get 'sessions/new'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
+
+  # these routes are for showing users a login form, logging them in, and logging them out
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
+  # created with categories generator
   namespace :admin do
     get 'categories/index'
     get 'categories/new'
