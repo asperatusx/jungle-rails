@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  # Created with sessions generator
+  # get 'sessions/new'
+  # get 'sessions/create'
+  # get 'sessions/destroy'
+
+  # these routes are for showing users a login form, logging them in, and logging them out
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
+  # created with categories generator
   namespace :admin do
     get 'categories/index'
     get 'categories/new'
@@ -9,6 +20,11 @@ Rails.application.routes.draw do
 
   # Define the route for the about page as '/about'
   get 'about', to: 'about#index'
+
+  # These routes will be for signup. The first renders a form in the browse, the second will 
+  # receive the form and create a user in our database using the data given to us by the user.
+  get '/signup', to: 'users#new'
+  post '/users', to: 'users#create'
 
   # Routes for products, allowing only index and show actions
   resources :products, only: [:index, :show]
