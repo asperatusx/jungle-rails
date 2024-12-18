@@ -48,7 +48,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <% if current_user %>
-            <span class="nav-link">Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout', class: "btn btn-danger btn-sm" %></span>
+            <span class="nav-link">Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout', class: "btn btn-danger btn-sm" %></span>
           <% else %>
             <span class="nav-link"><%= link_to 'Login', '/login', class: "btn btn-primary btn-sm" %> | <%= link_to 'Signup' , '/signup', class: "btn btn-success btn-sm"%></span>
           <% end %>
